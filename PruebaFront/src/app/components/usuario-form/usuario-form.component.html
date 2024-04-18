@@ -1,0 +1,31 @@
+<div class="p-8 mt-4">
+    <div class="shadow p-6">
+        @if(isEdit){
+            <h4>Detalle Usuario</h4>
+        }@else {
+            <h4>Crear Usuario</h4>
+        }
+        <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput placeholder="Nombre"  formControlName="name"/>
+                </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Mail</mat-label>
+                    <input type="text" matInput placeholder="Email" formControlName="mail"/>
+                </mat-form-field>
+            </div>
+            <div class="flex justify-center">
+                @if(isEdit){
+                    <button mat-raised-button color="primary" [disabled]="!usuarioForm.valid">Actualizar</button>
+                }@else {
+                    <button mat-raised-button color="primary" [disabled]="!usuarioForm.valid">Agregar</button>
+                }
+                    
+            </div>
+        </form>
+    </div>
+</div>
